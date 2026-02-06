@@ -20,7 +20,9 @@ export default function Navigation() {
     { name: "Skills", href: "#skills" },
     { name: "Experience", href: "#experience" },
     { name: "Education", href: "#education" },
-    { name: "Projects", href: "#projects" },
+    { name: "Portfolio", href: "#projects" },
+    { name: "Blog", href: "#blog" },
+    { name: "Testimonials", href: "#testimonials" },
     { name: "Resume", href: "#resume" },
     { name: "Social", href: "#social" },
     { name: "Contact", href: "#contact" },
@@ -43,13 +45,27 @@ export default function Navigation() {
             <Logo size="sm" variant="icon" />
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop Navigation - Large screens */}
+          <div className="hidden xl:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors whitespace-nowrap relative group"
+              >
+                {link.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 group-hover:w-full transition-all duration-300"></span>
+              </a>
+            ))}
+          </div>
+          
+          {/* Tablet Navigation - Medium to Large screens */}
+          <div className="hidden md:flex xl:hidden items-center gap-3">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-xs font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors whitespace-nowrap px-1"
               >
                 {link.name}
               </a>
@@ -72,12 +88,12 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden pb-6 space-y-2 border-t border-gray-200 dark:border-gray-800 mt-4 pt-4">
+          <div className="md:hidden pb-6 space-y-1 border-t border-gray-200 dark:border-gray-800 mt-4 pt-4 max-h-[calc(100vh-100px)] overflow-y-auto">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-900 rounded-lg transition-colors"
+                className="block px-4 py-2.5 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-900 rounded-lg transition-colors text-sm font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}

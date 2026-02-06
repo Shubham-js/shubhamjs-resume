@@ -46,6 +46,22 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Column - Image/Content */}
             <div className="space-y-6">
+              {/* Profile Picture */}
+              <div className="flex justify-center md:justify-start mb-6">
+                <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 neon-border">
+                  <div className="w-full h-full bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 flex items-center justify-center text-white text-6xl font-bold">
+                    {portfolioData.name.split(' ').map(n => n[0]).join('')}
+                  </div>
+                  {/* You can replace the gradient div above with an actual image:
+                  <img 
+                    src="/profile.jpg" 
+                    alt={portfolioData.name}
+                    className="w-full h-full object-cover"
+                  />
+                  */}
+                </div>
+              </div>
+              
               <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
                 {portfolioData.bio}
               </p>
