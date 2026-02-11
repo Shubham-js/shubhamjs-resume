@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Logo from "./Logo";
+import Image from "next/image";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,6 +14,10 @@ export default function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const navLinks = [
     { name: "About", href: "#about" },
@@ -38,12 +42,21 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <a
-            href="#home"
-            className="flex items-center hover:opacity-80 transition-opacity"
+          <button
+            onClick={handleLogoClick}
+            className="flex items-center hover:scale-110 transition-transform duration-300 ease-out cursor-pointer"
+            aria-label="Back to home"
           >
-            <Logo size="sm" variant="icon" />
-          </a>
+            <div className="w-20 h-20 relative flex items-center justify-center">
+              <Image
+                src="/navlogo.png"
+                alt="Shubham Jain"
+                width={100}
+                height={100}
+                className="rounded-full"
+              />
+            </div>
+          </button>
 
           {/* Desktop Navigation - Large screens */}
           <div className="hidden xl:flex items-center gap-6">
@@ -58,7 +71,7 @@ export default function Navigation() {
               </a>
             ))}
           </div>
-          
+
           {/* Tablet Navigation - Medium to Large screens */}
           <div className="hidden md:flex xl:hidden items-center gap-3">
             {navLinks.map((link) => (
@@ -79,9 +92,15 @@ export default function Navigation() {
             aria-label="Toggle menu"
           >
             <div className="w-6 h-6 flex flex-col justify-center gap-1.5">
-              <div className={`h-0.5 w-full bg-current transition-all ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
-              <div className={`h-0.5 w-full bg-current transition-all ${isMobileMenuOpen ? 'opacity-0' : ''}`}></div>
-              <div className={`h-0.5 w-full bg-current transition-all ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+              <div
+                className={`h-0.5 w-full bg-current transition-all ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}
+              ></div>
+              <div
+                className={`h-0.5 w-full bg-current transition-all ${isMobileMenuOpen ? "opacity-0" : ""}`}
+              ></div>
+              <div
+                className={`h-0.5 w-full bg-current transition-all ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+              ></div>
             </div>
           </button>
         </div>

@@ -57,9 +57,9 @@ export interface Testimonial {
 }
 
 export const portfolioData = {
-  name: "Shubham Jain",
-  title: "Software Engineer",
-  bio: "Passionate software developer with expertise in building modern web applications. I love creating efficient, scalable solutions and continuously learning new technologies.",
+  name: "git commit -m 'Shubham Jain'",
+  title: "git push origin main",
+  bio: "Software engineer specializing in scalable UI architecture and performance engineering. Experienced in building and optimizing high-traffic, data-intensive applications using React and modern web technologies. Focused on rendering efficiency, maintainable abstractions, and production-grade frontend systems.",
   email: "shubhamcomputer33@gmail.com",
   location: "Noida, Uttar Pradesh, India",
   resumeUrl: "https://drive.google.com/file/d/1TLaB9zc55DJrmsXJLS8F8LzJ2es5lcNy/view?usp=sharing",
